@@ -3,17 +3,17 @@
     background-color: rgb(50, 54, 105);
     display: flex;
     justify-content: center;
-  }
-  
-  .header {
+}
+
+.header {
     width: 900px;
     height: 100px;
     display: flex;
     justify-content: center;
     font-family: fantasy;
-    
-  }
-.SeeMessage{
+}
+
+.viewMessage {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -21,13 +21,13 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.postMessages{
+.postMessages {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     height: 60px;
 }
-.inputText{
-    flex:1;
 
+.inputText {
+    flex: 1;
 }

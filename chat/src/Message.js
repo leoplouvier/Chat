@@ -7,12 +7,12 @@ class Message extends Component {
 
     render() {
         return (
-            <div className='ColumnRow'>
-                <div className='imgDiv'><img src={this.props.Img} alt='Avatar' className='img' /></div>
+            <div className='columnRow'>
+                <div className='avatarContainer'><img src={this.props.Img} alt='Avatar' className='avatar' /></div>
                 <div className='txtMessage'>
-                    <div className='Name'>{this.props.Name}</div>
-                    <div className='Message'>{this.props.Message}</div>
-                    <div className="Time">{new Date().toLocaleTimeString()}</div>
+                    <div className='name'>{this.props.Name}</div>
+                    <div className='messageContainer'>{this.props.Message}</div>
+                    <div className="time">{new Date().toLocaleTimeString()}</div>
                 </div>
             </div>
 

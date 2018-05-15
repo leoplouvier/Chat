@@ -1,30 +1,40 @@
-.ColumnRow{
-    display: flex;
-    flex-wrap: wrap;
+.columnRow {
+    display: inline-flex;
+    flex-wrap: nowrap;
     flex-direction: row;
     align-items: center;
 }
 
-.imgDiv{
+.avatarContainer {
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
+   
 }
-.img{
-    height:30px;
-    width:30px;
+
+.avatar {
+    height: 30px;
+    width: 30px;
     border-radius: 15%
 }
-.txtMessage{
+
+.txtMessage {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     margin-left: 5px;
+
 }
-.Name{
+
+.name {
     font-weight: bold;
     font-size: larger;
 }
+.messageContainer{
+    max-width: 70vw;
+    word-wrap: break-word ;
+}
 
-.Time{
-    font-size:x-small;
+.time {
+    font-size: x-small;
 }
