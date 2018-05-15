@@ -1,0 +1,33 @@
+.header-container {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 54, 105);
+    display: flex;
+    justify-content: center;
+  }
+  
+  .header {
+    width: 900px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    font-family: fantasy;
+    
+  }
+.SeeMessage{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.postMessages{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 60px;
+}
+.inputText{
+    flex:1;
+
+}

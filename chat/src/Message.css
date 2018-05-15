@@ -1,0 +1,30 @@
+.ColumnRow{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.imgDiv{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img{
+    height:30px;
+    width:30px;
+    border-radius: 15%
+}
+.txtMessage{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-left: 5px;
+}
+.Name{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.Time{
+    font-size:x-small;
+}
