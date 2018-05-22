@@ -1,23 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Message.css'
-import './avatar.jpeg'
 
 
-class Message extends Component {
+const Message = ({img,name,message,date}) => {
 
-    render() {
-        return (
+    return(
             <div className='columnRow'>
-                <div className='avatarContainer'><img src={this.props.Img} alt='Avatar' className='avatar' /></div>
+                <div className='avatarContainer'><img src={img} alt="avatar" className='avatar' /></div>
                 <div className='txtMessage'>
-                    <div className='name'>{this.props.Name}</div>
-                    <div className='messageContainer'>{this.props.Message}</div>
-                    <div className="time">{new Date().toLocaleTimeString()}</div>
+                    <div className='name'>{name}</div>
+                    <div className='messageContainer'>{message}</div>
+                    <div className="time">{date}</div>
                 </div>
             </div>
-
-        )
-    }
+    )
+        
 }
 
 export default Message
