@@ -1,12 +1,27 @@
 import React, { Component } from 'react';
 import './Chat.css'
 import axios from 'axios'
+import Message from './Message.js'
+
 
 class Post extends Component {
     constructor(props) {
         super(props)
+        this.state = {
+            AllData: [],
+            NbMessages: 0,
+            AllMessages: []
+        }
         this.submitMessage = this.submitMessage.bind(this)
         this.handleKeypress = this.handleKeypress.bind(this)
+        this.update = this.update.bind(this)
+    }
+
+    componentWillMount() {
+        this.update()
+    }
+    componentWillUpdate() {
+        this.update()
     }
 
     submitMessage(e) {
@@ -19,16 +34,20 @@ class Post extends Component {
 
             axios.post('http://localhost:51442/api/Messages', {
                 content: this.refs.txtInput.value,
-                userName: "Léo",
-                avatarSrc: "https://i.pinimg.com/736x/e1/c3/71/e1c371ed831a3c6b5699cce1b3c6cf0f--kitten.jpg"
-               
+                userName: this.props.userName,
+                avatarSrc: this.props.avatar
+
             })
-                .then(response => console.log('success')) 
-                .catch(error =>console.log(error))
-                
+                .then(response => console.log('success'))
+                .catch(error => console.log(error))
+
 
             this.refs.txtInput.value = ''
+
+
         }
+        this.update()
+
     }
 
     handleKeypress(e) {
@@ -39,17 +58,32 @@ class Post extends Component {
         }
 
     }
+    
+    async update() {
 
+
+        var messages = await axios.get('http://localhost:51442/api/Messages')
+        var mappedMsg = messages.data.messages.map(m =>
+            <Message key={m.id} img={m.avatarSrc}
+                name={m.userName} message={m.content} date={m.date} />)
+        this.setState({ AllMessages: mappedMsg })
+
+    }
 
 
     render() {
 
         return (
 
-            <div className='postMessages' >
-                <textarea ref='txtInput' className='inputText' placeholder="Ecrivez un message..." onKeyUp={this.handleKeypress}></textarea>
-                <button type='submit' className='submitButton' onClick={this.submitMessage} >Envoyer</button>
-                <div id="postResult"></div>
+            <div>
+                <div className='viewMessage' >
+                    {this.state.AllMessages}
+                </div>
+                <div className='postMessages' >
+                    <textarea ref='txtInput' className='inputText' placeholder="Ecrivez un message..." onKeyUp={this.handleKeypress}></textarea>
+                    <button type='submit' className='submitButton' onClick={this.submitMessage} >Envoyer</button>
+                    <div id="postResult"></div>
+                </div>
             </div>
 
         );
