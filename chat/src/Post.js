@@ -32,7 +32,7 @@ class Post extends Component {
         }
         else {
 
-            axios.post('http://localhost:51442/api/Messages', {
+            axios.post('http://localhost:56090/api/Messages', {
                 content: this.refs.txtInput.value,
                 userName: this.props.userName,
                 avatarSrc: this.props.avatar
@@ -62,10 +62,11 @@ class Post extends Component {
     async update() {
 
 
-        var messages = await axios.get('http://localhost:51442/api/Messages')
+        var messages = await axios.get('http://localhost:56090/api/Messages')
         var mappedMsg = messages.data.messages.map(m =>
+            <div>
             <Message key={m.id} img={m.avatarSrc}
-                name={m.userName} message={m.content} date={m.date} />)
+                name={m.userName} message={m.content} date={m.date} /><div className="spaceBetween"></div></div>)
         this.setState({ AllMessages: mappedMsg })
 
     }
