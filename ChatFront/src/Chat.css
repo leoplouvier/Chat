@@ -1,0 +1,52 @@
+.header-container {
+    color: rgb(255, 255, 255);
+    background-color: rgb(50, 54, 105);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    width: 900px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: fantasy;
+    align-items: center;
+}
+
+.viewMessage {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    height: 60vh;
+    overflow: auto;
+}
+
+
+.postMessages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 60px;
+}
+.inputUser{
+    justify-content: flex-end;
+}
+.inputText {
+    flex: 1;
+}
+
+.inputUserName{
+    
+    width : 90px;
+    height:10px;
+
+}
+
+.spaceBetween{
+    min-height: 3px;
+}
