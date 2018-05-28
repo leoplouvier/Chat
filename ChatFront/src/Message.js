@@ -8,7 +8,7 @@ const Message = ({img,name,message,date}) => {
                 <div className='txtMessage'>
                     <div className='name'>{name}</div>
                     <div className='messageContainer'>{message}</div>
-                    <div className="time">{date}</div>
+                    <div className="time">{date.substring(11,16)}</div>
                 </div>
             </div>
     )

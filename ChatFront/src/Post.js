@@ -52,6 +52,7 @@ class Post extends Component {
     async update() {
         var result = await axios.get('http://localhost:56090/api/Messages')
         this.setState({ AllMessages: result.data.messages })
+        console.log(this.state.AllMessages)
     }
 
     render() {
@@ -59,8 +60,8 @@ class Post extends Component {
             <div>
                 <div className='viewMessage' >
                     {this.state.AllMessages.map(m =>
-                        <div>
-                            <Message key={m.id} img={m.avatarSrc} name={m.userName} message={m.content} date={m.date} />
+                        <div key={m.id}>
+                            <Message img={m.avatarSrc} name={m.userName} message={m.content} date={m.date} />
                             <div className="spaceBetween"></div>
                         </div>)}
                 </div>
