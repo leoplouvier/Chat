@@ -3,7 +3,6 @@ import './Chat.css'
 import axios from 'axios'
 import Message from './Message.js'
 
-
 class Post extends Component {
     constructor(props) {
         super(props)
@@ -25,29 +24,21 @@ class Post extends Component {
     }
 
     submitMessage(e) {
-
-
         if (this.refs.txtInput.value === '') {
             alert("Le message que vous essayez d'envoyer est vide")
         }
         else {
-
             axios.post('http://localhost:56090/api/Messages', {
                 content: this.refs.txtInput.value,
                 userName: this.props.userName,
                 avatarSrc: this.props.avatar
-
             })
                 .then(response => console.log('success'))
                 .catch(error => console.log(error))
 
-
             this.refs.txtInput.value = ''
-
-
         }
         this.update()
-
     }
 
     handleKeypress(e) {
@@ -56,29 +47,22 @@ class Post extends Component {
             this.refs.txtInput.value = this.refs.txtInput.value.substring(0, this.refs.txtInput.value.length - 1)
             this.submitMessage()
         }
-
     }
-    
+
     async update() {
-
-
-        var messages = await axios.get('http://localhost:56090/api/Messages')
-        var mappedMsg = messages.data.messages.map(m =>
-            <div>
-            <Message key={m.id} img={m.avatarSrc}
-                name={m.userName} message={m.content} date={m.date} /><div className="spaceBetween"></div></div>)
-        this.setState({ AllMessages: mappedMsg })
-
+        var result = await axios.get('http://localhost:56090/api/Messages')
+        this.setState({ AllMessages: result.data.messages })
     }
-
 
     render() {
-
         return (
-
             <div>
                 <div className='viewMessage' >
-                    {this.state.AllMessages}
+                    {this.state.AllMessages.map(m =>
+                        <div>
+                            <Message key={m.id} img={m.avatarSrc} name={m.userName} message={m.content} date={m.date} />
+                            <div className="spaceBetween"></div>
+                        </div>)}
                 </div>
                 <div className='postMessages' >
                     <textarea ref='txtInput' className='inputText' placeholder="Ecrivez un message..." onKeyUp={this.handleKeypress}></textarea>
@@ -86,7 +70,6 @@ class Post extends Component {
                     <div id="postResult"></div>
                 </div>
             </div>
-
         );
     }
 }
