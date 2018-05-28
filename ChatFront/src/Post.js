@@ -52,7 +52,6 @@ class Post extends Component {
     async update() {
         var result = await axios.get('http://localhost:56090/api/Messages')
         this.setState({ AllMessages: result.data.messages })
-        console.log(this.state.AllMessages)
     }
 
     render() {
