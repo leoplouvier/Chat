@@ -1,9 +1,7 @@
 import React from 'react';
 import './Message.css'
 
-
 const Message = ({img,name,message,date}) => {
-
     return(
             <div className='columnRow'>
                 <div className='avatarContainer'><img src={img} alt="avatar" className='avatar' /></div>
@@ -14,7 +12,6 @@ const Message = ({img,name,message,date}) => {
                 </div>
             </div>
     )
-        
 }
 
 export default Message

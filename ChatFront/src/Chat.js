@@ -13,16 +13,10 @@ class Chat extends Component {
   }
 
   handleChange(e) {
-
     this.setState({ userName: this.refs.txt.value, avatar: this.refs.select.value });
-
   }
 
-
   render() {
-
-
-
     return (
       <div className="App">
         <div className="header-container">
