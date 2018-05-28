@@ -8,7 +8,6 @@ class Chat extends Component {
     this.state = {
       userName: "Léo",
       avatar: "https://i.pinimg.com/736x/e1/c3/71/e1c371ed831a3c6b5699cce1b3c6cf0f--kitten.jpg",
-      shouldUpdate: true
     }
     this.handleChange = this.handleChange.bind(this)
   }

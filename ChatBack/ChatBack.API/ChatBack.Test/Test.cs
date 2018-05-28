@@ -3,7 +3,6 @@ using Xunit;
 using ChatBack.API;
 using ChatBack.API.Controllers;
 using ChatBack.API.Models;
-using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
 
@@ -27,9 +26,9 @@ namespace ChatBack.Test
             };
             controller.PostNewMessage(Message);
 
-            var id = MessageData.AllMessages.Messages.Max(m => m.Id);
+            var id = MessageStorage.AllMessages.Messages.Max(m => m.Id);
 
-            var LastMessage = MessageData.AllMessages.Messages.FirstOrDefault(m => m.Id == id);
+            var LastMessage = MessageStorage.AllMessages.Messages.FirstOrDefault(m => m.Id == id);
 
             int heure = DateTime.Now.Hour;
             int minute = DateTime.Now.Minute;
